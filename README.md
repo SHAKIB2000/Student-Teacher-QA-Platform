@@ -1,1 +1,1 @@
-# Student-Teacher-QA-Platform
+# Student-Teacher Question & Answer Platform
