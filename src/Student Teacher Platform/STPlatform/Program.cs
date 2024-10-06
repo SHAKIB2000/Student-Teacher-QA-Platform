@@ -1,7 +1,12 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
+using STPlatform;
 using STPlatform.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +21,13 @@ try
 {
     // Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+    
+    builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+    builder.Host.ConfigureContainer<ContainerBuilder>(cb =>
+    {
+        cb.RegisterModule(new WebModule());
+    });
+
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(connectionString));
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
