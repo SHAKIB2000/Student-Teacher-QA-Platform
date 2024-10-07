@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
 using STPlatform;
+using STPlatform.Persistence;
 using STPlatform.Web.Data;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,10 +23,12 @@ try
 {
     // Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-    
+    var migrationAssembly = Assembly.GetExecutingAssembly().FullName;
+
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(cb =>
     {
+        cb.RegisterModule(new PersistenceModule(connectionString, migrationAssembly));
         cb.RegisterModule(new WebModule());
     });
 
