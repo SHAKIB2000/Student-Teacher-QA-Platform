@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using STPlatform.Models;
+using STPlatform.Web.Models;
 using System.Diagnostics;
 
-namespace STPlatform.Controllers
+namespace STPlatform.Web.Controllers
 {
     public class HomeController : Controller
     {

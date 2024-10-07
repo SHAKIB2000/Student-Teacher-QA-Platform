@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace STPlatform.Data
+namespace STPlatform.Web.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

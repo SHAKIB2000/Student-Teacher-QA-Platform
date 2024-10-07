@@ -1,4 +1,4 @@
-namespace STPlatform.Models
+namespace STPlatform.Web.Models
 {
     public class ErrorViewModel
     {

@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
 using STPlatform;
-using STPlatform.Data;
+using STPlatform.Web.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
