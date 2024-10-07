@@ -10,7 +10,6 @@ using STPlatform;
 using STPlatform.Persistence;
 using STPlatform.Persistence.Extensions;
 using STPlatform.Web;
-using STPlatform.Web.Data;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,7 +29,7 @@ try
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(cb =>
     {
-        cb.RegisterModule(new PersistenceModule(connectionString, migrationAssembly));
+        cb.RegisterModule(new PersistenceModule(connectionString, AssemblyReference.GetExecutingAssemblyName()));
         cb.RegisterModule(new WebModule());
     });
 
