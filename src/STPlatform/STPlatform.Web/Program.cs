@@ -8,6 +8,8 @@ using Serilog;
 using Serilog.Events;
 using STPlatform;
 using STPlatform.Persistence;
+using STPlatform.Persistence.Extensions;
+using STPlatform.Web;
 using STPlatform.Web.Data;
 using System.Reflection;
 
@@ -32,12 +34,11 @@ try
         cb.RegisterModule(new WebModule());
     });
 
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(connectionString));
+    //builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    //    options.UseSqlServer(connectionString));
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-    builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        .AddEntityFrameworkStores<ApplicationDbContext>();
+    builder.Services.AddIdentity();
     builder.Services.AddControllersWithViews();
 
     var app = builder.Build();
@@ -59,6 +60,7 @@ try
 
     app.UseRouting();
 
+    app.UseAuthentication();
     app.UseAuthorization();
 
     app.MapControllerRoute(
@@ -70,7 +72,7 @@ try
 
     app.Run();
 }
-catch(Exception ex)
+catch (Exception ex)
 {
     Log.Fatal(ex, "Application can not start.");
 }

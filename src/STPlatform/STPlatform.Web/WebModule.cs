@@ -1,6 +1,6 @@
 ﻿using Autofac;
 
-namespace STPlatform
+namespace STPlatform.Web
 {
     public class WebModule : Module
     {

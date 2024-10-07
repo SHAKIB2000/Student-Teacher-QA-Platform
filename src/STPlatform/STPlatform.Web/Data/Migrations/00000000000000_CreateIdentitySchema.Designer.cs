@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using STPlatform.Persistence;
+using STPlatform.Web.Data;
 using System;
 
 namespace STPlatform.Web.Data.Migrations
