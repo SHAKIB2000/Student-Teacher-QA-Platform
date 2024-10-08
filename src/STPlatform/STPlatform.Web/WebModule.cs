@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using STPlatform.Web.Models.Auth;
 
 namespace STPlatform.Web
 {
@@ -6,6 +7,8 @@ namespace STPlatform.Web
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<RegisterModel>().AsSelf();
+
             base.Load(builder);
         }
     }
