@@ -79,3 +79,4 @@ finally
 {
     Log.CloseAndFlush();
 }
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
