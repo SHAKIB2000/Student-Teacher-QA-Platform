@@ -12,7 +12,7 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                <form id="account" method="post" asp-antiforgery="true" asp-controller="Auth" asp-action="Login" asp-area="" asp-route-returnurl="~/">
+                <form id="account" method="post" asp-antiforgery="true" asp-controller="Auth" asp-action="Login" asp-area="" asp-route-returnurl="@Model.ReturnUrl">
                     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start mt-5">
                         <p class="lead fw-normal mb-0 me-3">Sign in with</p>

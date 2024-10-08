@@ -2,19 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="bg-body-tertiary">
-    <div class="m-5 p-5 mx-auto">
-        <div class="card text-center col-6">
-            <div class="card-header display-5">
-                Welcome Back!
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Student Teacher Q & A Platform</h5>
-                <p class="card-text">Sign In to explore the discussions.</p>
-                <a href="#" class="btn btn-primary">Sign In</a>
-                <p>or, Sign Up if you are a new user.</p>
-                <a href="#" class="btn btn-primary">Sign Up</a>
+<body class="bg-body-tertiary">
+    <div class="d-flex my-5 py-5">
+        <div class="mx-auto col-md-4">
+            <div class="card text-center shadow rounded-4">
+                <div class="card-header display-6 fw-normal rounded-top-4 p-3">
+                    Welcome Back!
+                </div>
+                <div class="card-body p-4 mb-1">
+                    <h5 class="card-title mb-3">Student Teacher Q & A Platform</h5>
+                    <p class="card-text"><span class="fw-bold">Sign In</span> to explore the discussions.</p>
+                    <a class="btn btn-danger rounded-pill px-5" asp-area="" asp-controller="Auth" asp-action="Login">Sign In</a>
+                    <p>or,<br /><span class="fw-bold">Sign Up</span> if you are a new user.</p>
+                    <a class="btn btn-outline-danger rounded-pill px-5" asp-area="" asp-controller="Auth" asp-action="Register">Sign Up</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</body>
