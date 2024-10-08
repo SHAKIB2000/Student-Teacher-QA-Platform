@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
@@ -38,7 +39,7 @@ namespace STPlatform.Web.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> RegisterAsync(RegisterModel model)
         {
-            model.ReturnUrl ??= Url.Content("~/");
+            model.ReturnUrl ??= Url.Content("~/Auth/Login");
 
             if (ModelState.IsValid)
             {
@@ -65,7 +66,49 @@ namespace STPlatform.Web.Controllers
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
 
+        public async Task<IActionResult> LoginAsync(string returnUrl = null)
+        {
+            returnUrl ??= Url.Content("~/");
+
+            var model = _scope.Resolve<LoginModel>();
+
+            // Clear the existing external cookie to ensure a clean login process
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+
+            model.ReturnUrl = returnUrl;
+
+            return View(model);
+        }
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> LoginAsync(LoginModel model)
+        {
+            model.ReturnUrl ??= Url.Content("~/");
+
+            if (ModelState.IsValid)
+            {
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+                
+                if (result.Succeeded)
+                {
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+                    var claims = (await _userManager.GetClaimsAsync(user)).ToArray();
+
+                    return LocalRedirect(model.ReturnUrl);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
     }
