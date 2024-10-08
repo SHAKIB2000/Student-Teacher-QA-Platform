@@ -24,12 +24,12 @@ try
 {
     // Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-    var migrationAssembly = Assembly.GetExecutingAssembly().FullName;
+    var migrationAssembly = AssemblyReference.GetExecutingAssemblyName();
 
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(cb =>
     {
-        cb.RegisterModule(new PersistenceModule(connectionString, AssemblyReference.GetExecutingAssemblyName()));
+        cb.RegisterModule(new PersistenceModule(connectionString, migrationAssembly));
         cb.RegisterModule(new WebModule());
     });
 
