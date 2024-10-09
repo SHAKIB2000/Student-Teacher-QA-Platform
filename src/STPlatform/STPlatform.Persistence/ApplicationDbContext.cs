@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using STPlatform.Domain.Entities;
 using STPlatform.Persistence.Features.Membership;
 
 namespace STPlatform.Persistence
@@ -36,5 +37,7 @@ namespace STPlatform.Persistence
             base.OnModelCreating(modelBuilder);
 
         }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
     }
 }
