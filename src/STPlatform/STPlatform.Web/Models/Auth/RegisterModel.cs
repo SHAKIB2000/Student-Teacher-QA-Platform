@@ -25,15 +25,15 @@ namespace STPlatform.Web.Models.Auth
 
         // Additional fields for students
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 4)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [Display(Name = "Name")]
         public string Name { get; set; }
 
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 4)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [Display(Name = "Institute Name")]
         public string? InstituteName { get; set; }
 
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 3)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 3)]
         [Display(Name = "Institute ID No")]
         public string? InstituteID { get; set; }
 
