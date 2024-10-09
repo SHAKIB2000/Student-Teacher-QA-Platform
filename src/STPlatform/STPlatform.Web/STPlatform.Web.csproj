@@ -29,6 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\STPlatform.Application\STPlatform.Application.csproj" />
+    <ProjectReference Include="..\STPlatform.Infrastructure\STPlatform.Infrastructure.csproj" />
     <ProjectReference Include="..\STPlatform.Persistence\STPlatform.Persistence.csproj" />
   </ItemGroup>
 

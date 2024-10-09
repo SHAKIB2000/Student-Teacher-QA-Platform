@@ -15,6 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\STPlatform.Application\STPlatform.Application.csproj" />
 	  <ProjectReference Include="..\STPlatform.Domain\STPlatform.Domain.csproj" />
 	</ItemGroup>
 

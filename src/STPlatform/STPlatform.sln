@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STPlatform.Domain", "STPlat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STPlatform.Application", "STPlatform.Application\STPlatform.Application.csproj", "{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STPlatform.Infrastructure", "STPlatform.Infrastructure\STPlatform.Infrastructure.csproj", "{FDB56ABE-C582-4C77-94B4-A72AD677059B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDB56ABE-C582-4C77-94B4-A72AD677059B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDB56ABE-C582-4C77-94B4-A72AD677059B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDB56ABE-C582-4C77-94B4-A72AD677059B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDB56ABE-C582-4C77-94B4-A72AD677059B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
