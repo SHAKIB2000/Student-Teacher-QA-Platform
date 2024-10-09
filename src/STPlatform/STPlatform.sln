@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STPlatform.Persistence", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STPlatform.Domain", "STPlatform.Domain\STPlatform.Domain.csproj", "{F880FB2B-2643-485F-9579-9A566249932D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STPlatform.Application", "STPlatform.Application\STPlatform.Application.csproj", "{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F880FB2B-2643-485F-9579-9A566249932D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F880FB2B-2643-485F-9579-9A566249932D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F880FB2B-2643-485F-9579-9A566249932D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFACFE4B-9C4E-4F9A-82C2-B05B2D8FE605}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

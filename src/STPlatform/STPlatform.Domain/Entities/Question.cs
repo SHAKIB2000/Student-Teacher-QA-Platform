@@ -7,7 +7,7 @@ namespace STPlatform.Domain.Entities
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public string Topics { get; set; }
+        public string Topic { get; set; }
         public string Content { get; set; }
         public DateTime PostedDate { get; set; }
         public Guid StudentId { get; set; }
