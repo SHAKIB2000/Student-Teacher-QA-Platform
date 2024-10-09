@@ -14,7 +14,7 @@ namespace STPlatform.Infrastructure
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<QuestionService>().As<IQuestionService>().InstancePerLifetimeScope();
-            builder.RegisterType<AnswerService>().As<IQuestionService>().InstancePerLifetimeScope();
+            builder.RegisterType<AnswerService>().As<IAnswerService>().InstancePerLifetimeScope();
 
             base.Load(builder);
         }

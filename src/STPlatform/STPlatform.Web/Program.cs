@@ -1,16 +1,13 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Events;
-using STPlatform;
+using STPlatform.Application;
+using STPlatform.Infrastructure;
 using STPlatform.Persistence;
 using STPlatform.Persistence.Extensions;
 using STPlatform.Web;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,12 +26,12 @@ try
     builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
     builder.Host.ConfigureContainer<ContainerBuilder>(cb =>
     {
+        cb.RegisterModule(new ApplicationModule());
+        cb.RegisterModule(new InfrastructureModule());
         cb.RegisterModule(new PersistenceModule(connectionString, migrationAssembly));
         cb.RegisterModule(new WebModule());
     });
 
-    //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    //    options.UseSqlServer(connectionString));
     builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
     builder.Services.AddIdentity();
@@ -79,4 +76,3 @@ finally
 {
     Log.CloseAndFlush();
 }
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
