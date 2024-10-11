@@ -72,7 +72,7 @@ namespace STPlatform.Web.Controllers
 
         public async Task<IActionResult> LoginAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("~/User/Student/Dashboard");
 
             var model = _scope.Resolve<LoginModel>();
 
@@ -87,7 +87,7 @@ namespace STPlatform.Web.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> LoginAsync(LoginModel model)
         {
-            model.ReturnUrl ??= Url.Content("~/");
+            model.ReturnUrl ??= Url.Content("~/User/Student/Dashboard");
 
             if (ModelState.IsValid)
             {
